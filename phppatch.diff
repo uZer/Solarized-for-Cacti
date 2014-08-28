@@ -1,0 +1,20 @@
+--- html_form.php	2014-08-28 12:22:16.879963384 +0200
++++ new.php	2014-08-28 12:24:03.237213342 +0200
+@@ -660,7 +660,7 @@
+
+ 	$on_change = " onChange='this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor;$on_change'";
+
+-	$colors_list = db_fetch_assoc("select id,hex from colors order by hex desc");
++	$colors_list = db_fetch_assoc("select id,hex,name from colors order by name desc");
+
+ 	print "<select style='background-color: #$current_color;' id='$form_name' name='$form_name'" . $class . $on_change . ">\n";
+
+@@ -676,7 +676,7 @@
+ 				print " selected";
+ 			}
+
+-			print ">" . $color["hex"] . "</option>\n";
++			print ">" . $color["name"] . " (" . $color["hex"] . ")" . "</option>\n";
+ 		}
+ 	}
+
